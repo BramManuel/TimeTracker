@@ -30,7 +30,7 @@ namespace TimeTracker
                 return _startTime;
             }
 
-            private set { _startTime = value; }
+            set { _startTime = value; }
         }
 
         /// <summary>

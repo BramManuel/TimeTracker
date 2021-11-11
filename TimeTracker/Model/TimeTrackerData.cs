@@ -30,7 +30,7 @@ namespace TimeTracker.Model
         {
             get
             {
-                return this.GetTimeElapsed().Format();
+                return this.GetTimeElapsed().FormatToMinutes();
             }
         }
 

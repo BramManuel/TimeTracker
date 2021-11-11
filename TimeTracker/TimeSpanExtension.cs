@@ -37,5 +37,10 @@ namespace TimeTracker
 
             return timeSpan.ToString("m\\:ss");
         }
+
+        public static String FormatToMinutes(this TimeSpan timeSpan)
+        {
+            return Math.Round(timeSpan.TotalMinutes).ToString();
+        }
     }
 }

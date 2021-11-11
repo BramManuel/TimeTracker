@@ -729,5 +729,10 @@ namespace TimeTracker.Form
                 this.ShowInTaskbar = false;
             }
         }
+
+        private void trackingStartTimeToolStripTextBox_LostFocus(object sender, EventArgs e)
+        {
+           this.TrackingService.StartTime = DateTimeOffset.ParseExact(sender.ToString(), "h\\:mm\\:ss",CultureInfo.InvariantCulture);
+        }
     }
 }

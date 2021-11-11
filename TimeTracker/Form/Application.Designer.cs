@@ -420,13 +420,12 @@
             // 
             resources.ApplyResources(this.trackingStartTimeToolStripTextBox, "trackingStartTimeToolStripTextBox");
             this.trackingStartTimeToolStripTextBox.Name = "trackingStartTimeToolStripTextBox";
-            this.trackingStartTimeToolStripTextBox.ReadOnly = true;
+            this.trackingStartTimeToolStripTextBox.LostFocus += new System.EventHandler(this.trackingStartTimeToolStripTextBox_LostFocus);
             // 
             // trackingElapsedTimeToolStripTextBox
             // 
             resources.ApplyResources(this.trackingElapsedTimeToolStripTextBox, "trackingElapsedTimeToolStripTextBox");
             this.trackingElapsedTimeToolStripTextBox.Name = "trackingElapsedTimeToolStripTextBox";
-            this.trackingElapsedTimeToolStripTextBox.ReadOnly = true;
             // 
             // categoryToolStripComboBox
             // 
