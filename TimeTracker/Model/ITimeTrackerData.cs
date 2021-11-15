@@ -22,6 +22,8 @@ namespace TimeTracker.Model
         /// </summary>
         TrackedDataCategory Category { get; set; }
 
+        string Description { get; set; }
+
         /// <summary>
         /// Contains time elapsed as a user-friendly string
         /// </summary>

@@ -32,17 +32,20 @@ namespace TimeTracker
         /// <returns></returns>
         public static string SerializeValue(ITimeTrackerData value)
         {
-            string StartTime = value.StartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
-            string EndTime = value.EndTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
+            var startTime = value.StartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
+            var endTime = value.EndTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
 
-            if (value.Category == null)
+            var resultString = $"{startTime},{endTime}";
+
+            if (value.Category != null)
             {
-                return string.Format("{0},{1}", StartTime, EndTime);
-            } else {
-                string Category = value.Category.Name;
-                return string.Format("{0},{1},{2}", StartTime, EndTime, Category);
+                resultString = $"{resultString},{value.Category.Name}";
+            } 
+            if (value.Description != null)
+            {
+                resultString = $"{resultString},{value.Description}";
             }
-
+            return resultString;
         }
 
         /// <summary>
@@ -69,6 +72,16 @@ namespace TimeTracker
                 }
 
                 return new TimeTrackerData(DateTimeOffset.Parse(pieces[0]), DateTimeOffset.Parse(pieces[1]), new TrackedDataCategory(category));
+            }
+
+            if (pieces.Length == 4)
+            {
+                string category = pieces[2];
+                if (category.Length > categoryMaxLength)
+                {
+                    category = category.Substring(0, categoryMaxLength);
+                }
+                return new TimeTrackerData(DateTimeOffset.Parse(pieces[0]), DateTimeOffset.Parse(pieces[1]), new TrackedDataCategory(category), pieces[3]);
             }
 
             throw new DeserializationException("Encountered invalid serialized value");

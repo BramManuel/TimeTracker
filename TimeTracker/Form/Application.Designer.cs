@@ -36,10 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
-            this.DateStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeSpan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statsTotalText = new System.Windows.Forms.ToolStripStatusLabel();
             this.statsSelectedText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -76,8 +72,14 @@
             this.trackingStartTimeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.trackingElapsedTimeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.categoryToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.trackingDescriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.DateStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeSpan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -85,6 +87,7 @@
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -105,6 +108,7 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.mainMenuStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripMain);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // dataGridViewMain
             // 
@@ -147,38 +151,6 @@
             this.dataGridViewMain.SelectionChanged += new System.EventHandler(this.dataGridViewMain_SelectionChanged);
             this.dataGridViewMain.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewMain_Paint);
             this.dataGridViewMain.Resize += new System.EventHandler(this.dataGridViewMain_Resize);
-            // 
-            // DateStart
-            // 
-            this.DateStart.DataPropertyName = "StartTime";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd HH:mm:ss";
-            this.DateStart.DefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.DateStart, "DateStart");
-            this.DateStart.Name = "DateStart";
-            this.DateStart.ReadOnly = true;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "EndTime";
-            dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
-            this.EndDate.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.EndDate, "EndDate");
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            // 
-            // TimeSpan
-            // 
-            this.TimeSpan.DataPropertyName = "TimeElapsed";
-            resources.ApplyResources(this.TimeSpan, "TimeSpan");
-            this.TimeSpan.Name = "TimeSpan";
-            this.TimeSpan.ReadOnly = true;
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.DataPropertyName = "Category";
-            resources.ApplyResources(this.CategoryName, "CategoryName");
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.ReadOnly = true;
             // 
             // statusStrip
             // 
@@ -436,6 +408,18 @@
             this.categoryToolStripComboBox.Sorted = true;
             this.categoryToolStripComboBox.TextUpdate += new System.EventHandler(this.categoryToolStripComboBox_TextUpdate);
             // 
+            // toolStrip1
+            // 
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trackingDescriptionToolStripTextBox});
+            this.toolStrip1.Name = "toolStrip1";
+            // 
+            // trackingDescriptionToolStripTextBox
+            // 
+            resources.ApplyResources(this.trackingDescriptionToolStripTextBox, "trackingDescriptionToolStripTextBox");
+            this.trackingDescriptionToolStripTextBox.Name = "trackingDescriptionToolStripTextBox";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Category";
@@ -447,6 +431,42 @@
             // 
             resources.ApplyResources(this.notifyIcon, "notifyIcon");
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
+            // 
+            // DateStart
+            // 
+            this.DateStart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DateStart.DataPropertyName = "StartTime";
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd HH:mm:ss";
+            this.DateStart.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.DateStart, "DateStart");
+            this.DateStart.Name = "DateStart";
+            this.DateStart.ReadOnly = true;
+            // 
+            // EndDate
+            // 
+            this.EndDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EndDate.DataPropertyName = "EndTime";
+            dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
+            this.EndDate.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.EndDate, "EndDate");
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            // 
+            // TimeSpan
+            // 
+            this.TimeSpan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TimeSpan.DataPropertyName = "TimeElapsed";
+            resources.ApplyResources(this.TimeSpan, "TimeSpan");
+            this.TimeSpan.Name = "TimeSpan";
+            this.TimeSpan.ReadOnly = true;
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CategoryName.DataPropertyName = "Category";
+            resources.ApplyResources(this.CategoryName, "CategoryName");
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ReadOnly = true;
             // 
             // Application
             // 
@@ -469,6 +489,8 @@
             this.mainMenuStrip.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,10 +524,6 @@
         private System.Windows.Forms.ToolStripTextBox trackingElapsedTimeToolStripTextBox;
         private System.Windows.Forms.ToolStripTextBox trackingStartTimeToolStripTextBox;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeSpan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.ToolStripComboBox categoryToolStripComboBox;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
@@ -518,6 +536,12 @@
         private System.Windows.Forms.ToolStripStatusLabel statsTotalText;
         private System.Windows.Forms.ToolStripStatusLabel statsSelectedText;
         private System.Windows.Forms.ToolStripStatusLabel statsCategoryText;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripTextBox trackingDescriptionToolStripTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeSpan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
     }
 }
 

@@ -356,7 +356,7 @@ namespace TimeTracker.Form
             TrackingService.Start();
             RefreshTimer.Start();
             RefreshTrackingButtons();
-            this.trackingStartTimeToolStripTextBox.Text = TrackingService.StartTime.LocalDateTime.ToString("h\\:mm\\:ss");
+            this.trackingStartTimeToolStripTextBox.Text = TrackingService.StartTime.ToString("HH\\:mm\\:ss");
             this.trackingElapsedTimeToolStripTextBox.Text = TrackingService.Elapsed;
         }
 
@@ -369,6 +369,11 @@ namespace TimeTracker.Form
             if (categoryToolStripComboBox.Text.Length > 0)
             {
                 item.Category = new TrackedDataCategory(categoryToolStripComboBox.Text.Trim(' '));
+            }
+
+            if (trackingDescriptionToolStripTextBox.Text.Length > 0)
+            {
+                item.Description = trackingDescriptionToolStripTextBox.Text;
             }
 
             Data.Add(item);
@@ -732,7 +737,11 @@ namespace TimeTracker.Form
 
         private void trackingStartTimeToolStripTextBox_LostFocus(object sender, EventArgs e)
         {
-           this.TrackingService.StartTime = DateTimeOffset.ParseExact(sender.ToString(), "h\\:mm\\:ss",CultureInfo.InvariantCulture);
+            DateTimeOffset setTimeTo = DateTimeOffset.ParseExact(sender.ToString(), "HH\\:mm\\:ss", CultureInfo.InvariantCulture);
+            if (DateTimeOffset.Now > setTimeTo)
+            {
+                this.TrackingService.StartTime = setTimeTo;
+            }
         }
     }
 }

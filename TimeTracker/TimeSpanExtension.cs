@@ -33,7 +33,7 @@ namespace TimeTracker
                 return timeSpan.ToString("d\\d\\ hh\\:mm\\:ss");
 
             if (timeSpan.TotalHours > 1)
-                return timeSpan.ToString("h\\:mm\\:ss");
+                return timeSpan.ToString("hh\\:mm\\:ss");
 
             return timeSpan.ToString("m\\:ss");
         }
