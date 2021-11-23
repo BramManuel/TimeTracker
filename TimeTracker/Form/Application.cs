@@ -368,7 +368,13 @@ namespace TimeTracker.Form
             // fill in category
             if (categoryToolStripComboBox.Text.Length > 0)
             {
-                item.Category = new TrackedDataCategory(categoryToolStripComboBox.Text.Trim(' '));
+                if (Regex.IsMatch(categoryToolStripComboBox.Text.Trim(' '), "(?:SR|P|RFC)(-)\\d{7}"))
+                {
+                    item.Category = new TrackedDataCategory(categoryToolStripComboBox.Text.Trim(' '));
+                }else
+                {
+                    throw new Exception();
+                }
             }
 
             if (trackingDescriptionToolStripTextBox.Text.Length > 0)

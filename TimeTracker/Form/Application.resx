@@ -137,7 +137,7 @@
     <value>True</value>
   </metadata>
   <data name="DateStart.HeaderText" xml:space="preserve">
-    <value>date_start</value>
+    <value>Start Time</value>
   </data>
   <data name="DateStart.Width" type="System.Int32, mscorlib">
     <value>120</value>
@@ -146,7 +146,7 @@
     <value>True</value>
   </metadata>
   <data name="EndDate.HeaderText" xml:space="preserve">
-    <value>date_end</value>
+    <value>End Time</value>
   </data>
   <data name="EndDate.Width" type="System.Int32, mscorlib">
     <value>120</value>
@@ -164,7 +164,7 @@
     <value>True</value>
   </metadata>
   <data name="CategoryName.HeaderText" xml:space="preserve">
-    <value>category_name</value>
+    <value>Ticket Number</value>
   </data>
   <data name="CategoryName.Width" type="System.Int32, mscorlib">
     <value>120</value>
