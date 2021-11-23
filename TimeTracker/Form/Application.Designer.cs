@@ -74,12 +74,12 @@
             this.categoryToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.trackingDescriptionToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.DateStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeSpan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -132,7 +132,8 @@
             this.DateStart,
             this.EndDate,
             this.TimeSpan,
-            this.CategoryName});
+            this.CategoryName,
+            this.description});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -417,15 +418,8 @@
             // 
             // trackingDescriptionToolStripTextBox
             // 
-            resources.ApplyResources(this.trackingDescriptionToolStripTextBox, "trackingDescriptionToolStripTextBox");
             this.trackingDescriptionToolStripTextBox.Name = "trackingDescriptionToolStripTextBox";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            resources.ApplyResources(this.trackingDescriptionToolStripTextBox, "trackingDescriptionToolStripTextBox");
             // 
             // notifyIcon
             // 
@@ -468,6 +462,13 @@
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.ReadOnly = true;
             // 
+            // description
+            // 
+            this.description.DataPropertyName = "Description";
+            resources.ApplyResources(this.description, "description");
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
             // Application
             // 
             resources.ApplyResources(this, "$this");
@@ -497,7 +498,6 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip mainMenuStrip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
@@ -542,6 +542,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeSpan;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
     }
 }
 

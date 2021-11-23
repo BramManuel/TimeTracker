@@ -22,6 +22,9 @@ namespace TimeTracker.Model
         /// </summary>
         TrackedDataCategory Category { get; set; }
 
+        /// <summary>
+        /// Represents this entry's description
+        /// </summary>
         string Description { get; set; }
 
         /// <summary>
