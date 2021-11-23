@@ -710,13 +710,13 @@
     <value>None</value>
   </data>
   <data name="trackingDescriptionToolStripTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 25</value>
+    <value>800, 25</value>
   </data>
   <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 49</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>764, 25</value>
+    <value>814, 25</value>
   </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
