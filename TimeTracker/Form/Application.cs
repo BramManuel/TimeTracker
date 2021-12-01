@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -98,12 +99,10 @@ namespace TimeTracker.Form
 
             // TODO: Finish add and copy buttons
             // Remove not implemented buttons
-            this.toolStripMain.Items.RemoveByKey("addToolStripButton");
             this.toolStripMain.Items.RemoveByKey("copyToolStripButton");
 
             this.dataGridViewMain.DataSource = Data;
             this.categoryToolStripComboBox.MaxLength = CATEGORY_MAXLENGTH;
-
 
             this.Refresh();
             Data.ListChanged += new ListChangedEventHandler(DataListChanged);
@@ -282,6 +281,7 @@ namespace TimeTracker.Form
             RefreshFileButtons();
             RefreshTitle();
             RefreshStatistics();
+            RefreshBackgroundColorDataGridViewRow();
         }
 
 
@@ -382,7 +382,7 @@ namespace TimeTracker.Form
                 item.Description = trackingDescriptionToolStripTextBox.Text;
             }
 
-            Data.Add(item);
+            Data.Insert(0,item);
             RefreshTrackingButtons();
             RefreshCategoryPicker();
         }
@@ -747,6 +747,41 @@ namespace TimeTracker.Form
             if (DateTimeOffset.Now > setTimeTo)
             {
                 this.TrackingService.StartTime = setTimeTo;
+            }
+        }
+
+        private void dataGridViewMain_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Clipboard.SetText(dataGridViewMain[e.ColumnIndex, e.RowIndex].Value.ToString());
+        }
+
+        private void doneToolStripButton_Click(object sender, EventArgs e)
+        {
+            DataGridView grid = this.dataGridViewMain;
+
+            foreach (DataGridViewRow selectedRow in grid.SelectedRows)
+            {
+                var data = Data.Single(x =>  x == selectedRow.DataBoundItem as TimeTrackerData);
+                data.Booked = !data.Booked;
+            }
+            RefreshBackgroundColorDataGridViewRow();
+            DataListChanged(sender,null);
+        }
+
+        private void RefreshBackgroundColorDataGridViewRow()
+        {
+            DataGridView grid = this.dataGridViewMain;
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                var data = Data.Single(x => x == row.DataBoundItem as TimeTrackerData);
+                if (data.Booked)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
     }

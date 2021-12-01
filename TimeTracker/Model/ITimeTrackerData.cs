@@ -28,6 +28,11 @@ namespace TimeTracker.Model
         string Description { get; set; }
 
         /// <summary>
+        /// Represents this entry's booked
+        /// </summary>
+        bool Booked { get; set; }
+
+        /// <summary>
         /// Contains time elapsed as a user-friendly string
         /// </summary>
         String TimeElapsed { get; }

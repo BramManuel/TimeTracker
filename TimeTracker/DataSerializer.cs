@@ -36,6 +36,7 @@ namespace TimeTracker
             var endTime = value.EndTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
 
             var resultString = $"{startTime},{endTime}";
+            resultString += $",{value.Booked}";
 
             if (value.Category != null)
             {
@@ -45,6 +46,7 @@ namespace TimeTracker
             {
                 resultString = $"{resultString},{value.Description}";
             }
+
             return resultString;
         }
 
@@ -65,7 +67,7 @@ namespace TimeTracker
 
             if (pieces.Length == 3)
             {
-                string category = pieces[2];
+                string category = pieces[3];
                 if (category.Length > categoryMaxLength)
                 {
                     category = category.Substring(0, categoryMaxLength);
@@ -76,12 +78,22 @@ namespace TimeTracker
 
             if (pieces.Length == 4)
             {
-                string category = pieces[2];
+                string category = pieces[3];
                 if (category.Length > categoryMaxLength)
                 {
                     category = category.Substring(0, categoryMaxLength);
                 }
-                return new TimeTrackerData(DateTimeOffset.Parse(pieces[0]), DateTimeOffset.Parse(pieces[1]), new TrackedDataCategory(category), pieces[3]);
+                return new TimeTrackerData(DateTimeOffset.Parse(pieces[0]), DateTimeOffset.Parse(pieces[1]), new TrackedDataCategory(category), bool.Parse(pieces[2]));
+            }
+
+            if (pieces.Length == 5)
+            {
+                string category = pieces[3];
+                if (category.Length > categoryMaxLength)
+                {
+                    category = category.Substring(0, categoryMaxLength);
+                }
+                return new TimeTrackerData(DateTimeOffset.Parse(pieces[0]), DateTimeOffset.Parse(pieces[1]), new TrackedDataCategory(category), bool.Parse(pieces[2]), pieces[4]);
             }
 
             throw new DeserializationException("Encountered invalid serialized value");

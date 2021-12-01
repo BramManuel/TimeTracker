@@ -63,7 +63,7 @@
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.doneToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -80,6 +80,7 @@
             this.TimeSpan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Booked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -134,7 +135,8 @@
             this.EndDate,
             this.TimeSpan,
             this.CategoryName,
-            this.description});
+            this.description,
+            this.Booked});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -150,6 +152,7 @@
             this.dataGridViewMain.RowHeadersVisible = false;
             this.dataGridViewMain.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewMain.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMain_CellDoubleClick);
             this.dataGridViewMain.SelectionChanged += new System.EventHandler(this.dataGridViewMain_SelectionChanged);
             this.dataGridViewMain.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewMain_Paint);
             this.dataGridViewMain.Resize += new System.EventHandler(this.dataGridViewMain_Resize);
@@ -318,7 +321,7 @@
             this.openToolStripButton,
             this.saveToolStripButton,
             this.toolStripSeparator,
-            this.addToolStripButton,
+            this.doneToolStripButton,
             this.deleteToolStripButton,
             this.copyToolStripButton,
             this.toolStripSeparator1,
@@ -356,10 +359,11 @@
             this.toolStripSeparator.Name = "toolStripSeparator";
             resources.ApplyResources(this.toolStripSeparator, "toolStripSeparator");
             // 
-            // addToolStripButton
+            // doneToolStripButton
             // 
-            resources.ApplyResources(this.addToolStripButton, "addToolStripButton");
-            this.addToolStripButton.Name = "addToolStripButton";
+            resources.ApplyResources(this.doneToolStripButton, "doneToolStripButton");
+            this.doneToolStripButton.Name = "doneToolStripButton";
+            this.doneToolStripButton.Click += new System.EventHandler(this.doneToolStripButton_Click);
             // 
             // deleteToolStripButton
             // 
@@ -419,8 +423,8 @@
             // 
             // trackingDescriptionToolStripTextBox
             // 
-            this.trackingDescriptionToolStripTextBox.Name = "trackingDescriptionToolStripTextBox";
             resources.ApplyResources(this.trackingDescriptionToolStripTextBox, "trackingDescriptionToolStripTextBox");
+            this.trackingDescriptionToolStripTextBox.Name = "trackingDescriptionToolStripTextBox";
             // 
             // notifyIcon
             // 
@@ -469,6 +473,13 @@
             resources.ApplyResources(this.description, "description");
             this.description.Name = "description";
             this.description.ReadOnly = true;
+            // 
+            // Booked
+            // 
+            this.Booked.DataPropertyName = "Booked";
+            resources.ApplyResources(this.Booked, "Booked");
+            this.Booked.Name = "Booked";
+            this.Booked.ReadOnly = true;
             // 
             // Application
             // 
@@ -519,7 +530,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.DataGridView dataGridViewMain;
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
-        private System.Windows.Forms.ToolStripButton addToolStripButton;
+        private System.Windows.Forms.ToolStripButton doneToolStripButton;
         private System.Windows.Forms.ToolStripButton startTrackingToolStripButton;
         private System.Windows.Forms.ToolStripButton stopTrackingToolStripButton;
         private System.Windows.Forms.ToolStripTextBox trackingElapsedTimeToolStripTextBox;
@@ -544,6 +555,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeSpan;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Booked;
     }
 }
 

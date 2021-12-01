@@ -36,6 +36,8 @@ namespace TimeTracker.Model
 
         public string Description { get; set; }
 
+        public bool Booked { get; set; }
+
         /// <param name="endTime"></param>
         /// <param name="category"></param>
         public TimeTrackerData(DateTimeOffset endTime, TrackedDataCategory category = null)
@@ -48,11 +50,12 @@ namespace TimeTracker.Model
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
         /// <param name="category"></param>
-        public TimeTrackerData(DateTimeOffset startTime, DateTimeOffset endTime, TrackedDataCategory category = null, string description = null)
+        public TimeTrackerData(DateTimeOffset startTime, DateTimeOffset endTime, TrackedDataCategory category = null, bool booked = false ,string description = null)
         {
             StartTime = startTime;
             EndTime = endTime;
             Category = category;
+            Booked = booked;
             Description = description;
         }
 
